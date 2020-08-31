@@ -1,0 +1,255 @@
+$light-color:#F7FAFC;
+$indigo-color:#3C366B;
+$gray-color:#4A5568;
+$red-color:#E74C3C;
+$light-gray:#DDD;
+$black-color:black;
+$gray:#718096;
+$font-stack:Helvetica, sans-serif;
+body{
+    font:100% $font-stack;
+    margin:0;
+}
+.navbar{
+    background-color: $light-color;
+   overflow:hidden;
+    a{
+        color:$gray-color;
+        float:left;
+        display:block;
+        text-align:center;
+        padding:10px 20px;
+        text-decoration: none;
+        img{
+            height:30px;
+            width:145px;
+        }
+    }
+    a:hover{
+        background-color: $light-gray;
+        color:$black-color;
+        padding:10px 20px;
+    }
+    .right{
+        float:right;
+        width:auto;
+        display:block;
+        padding:5px;
+    }
+}
+@media screen and (max-width:800px)
+{
+    .navbar{
+        a{
+            float:none;
+            width: 100%;
+        }
+        .right{
+            float:none;
+            width: 100%;
+        }
+    }
+}
+.header{
+    background-image:url("images/header.jpg");
+    height:400px;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-size:cover;
+    position: relative;
+    border-top:1px solid $indigo-color;
+    border-bottom:1px solid $indigo-color;
+}
+.text-header{
+    text-align: center;
+    padding: 30px;
+ 
+    hr{
+        margin:auto;
+        width: 50%;
+        border-color: $gray;
+        margin-bottom: 10px;
+    }
+    p{
+        color:$gray-color;
+        font-size: 20px;
+        margin-bottom: 50px;
+    }
+}
+@mixin judul($color,$shadow){
+    color:$color;
+    text-shadow: 1px 1px $shadow;
+    font-size: 35px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+.judul-header{
+    @include judul($indigo-color,$light-color);
+}
+.judul-product{
+    @include judul($light-color,$indigo-color);
+}
+.button-basic{
+    border:none;
+    padding: 15px 15px;
+    text-align: center;
+    font-size: 20px;
+    cursor: pointer;
+    color:white;
+    font-family: 'Poiret one', cursive;
+    text-decoration: none;
+    border-radius: 8px;
+    margin-top: 30px;
+}
+.button-primary
+{
+    @extend.button-basic;
+    background-color: $red-color;
+}
+.button-secondary
+{
+    @extend.button-basic;
+    background-color: $gray;
+}
+.grid-container{
+box-sizing: border-box;
+}
+@mixin item($value)
+{
+  width: $value;
+  float:left;
+  @media screen and(max-width:800px) {
+      float: none;
+      width: 100%;
+  }
+}
+.item-sepertiga{
+    @include item(33%);
+}
+.item-duapertiga
+{
+    @include item(66%);
+}
+.about
+{
+    background-image: linear-gradient(to bottom right, $light-gray, $light-color);
+    min-height: 400px;
+    @media screen and(max-width:800px) {
+        text-align: center;
+    }
+    img{
+        border-radius: 100%;
+        padding: 20px;
+        width: 300px;
+        height: 300px;
+    }
+    h1{
+        color: $indigo-color;
+        text-shadow: 1px 1px $light-color;
+        font-size: 46px;
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+    h2{
+        color: $red-color;
+        font-size: 32px;
+        margin-bottom: 15px;
+    }
+    p{
+        color:$gray-color;
+        font-size: 20px;
+    }
+}
+.product
+{
+    background-color: $indigo-color;
+}
+.image-style{
+    border-radius: 25px;
+    padding:10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.product-body{
+    display: flex;
+    align-items: stretch;
+    justify-content: space-around;
+    margin-top: 20px;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    @media screen and (max-width:800px)
+    {
+        flex-direction: column;
+    }
+    .product-item{
+        background-color: $light-color;
+        color:$gray;
+        box-shadow: 0 4px 8px 0 $gray;
+        margin: 16px;
+        border-radius: 10px;
+        width: 340px;
+        img{
+            width:90%;
+            @extend .image-style;
+        }
+        .product-content{
+           padding:20px;
+           text-align: justify;
+        }
+        .product-footer
+        {
+            padding:20px;
+            margin-bottom: 20px;
+        }
+        @media screen and (max-width:800px)
+        {
+            width: 100%;
+        }
+    }
+}
+.contact
+{
+ background-image: url("images/map.jpg");
+ background-position: center;
+ background-repeat: no-repeat;
+ background-size: cover;
+ position: relative;
+ padding: 50px;
+    .info{
+        width:50%;
+        @media screen and (max-width:800px){
+            width: 75%;
+        }
+        background-color: $light-gray;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 20px;
+        text-align: justify;
+        border-radius: 10px;
+        i{
+            color:$red-color;
+            font-size: 30px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        h1{
+            color:$gray-color;
+            size:35px;
+        }
+    }
+}
+.footer
+{
+    background-color: $black-color;
+    color:$light-color;
+    padding:20px;
+    text-align: center;
+    a{
+        color:$indigo-color;
+        padding:8px;
+        text-decoration: none;
+        font-size:25px;
+    }
+}
